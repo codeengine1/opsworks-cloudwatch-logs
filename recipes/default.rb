@@ -11,3 +11,12 @@ execute "Install CloudWatch Logs agent" do
   command "/opt/aws/cloudwatch/awslogs-agent-setup.py -n -r us-east-1 -c /tmp/cwlogs.cfg"
   not_if { system "pgrep -f aws-logs-agent-setup" }
 end
+
+
+template "/tmp/cwlogs.cfg" do
+  cookbook "logs"
+  source "cwlogs.cfg.erb"
+  owner "root"
+  group "root"
+  mode 0644
+end
