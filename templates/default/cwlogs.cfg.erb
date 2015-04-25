@@ -7,7 +7,7 @@ file = /var/log/nginx/access.log
 buffer_duration = 5000
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
 initial_position = start_of_file
-log_group_name = <%= node[:opsworks][:layers]['layershortname'][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-access
+log_group_name = <%= node[:opsworks][:instance][:layers][0][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-access
 
 [error]
 datetime_format = %Y-%m-%dT%H:%M:%S%z
@@ -15,7 +15,7 @@ file = /var/log/nginx/error.log
 buffer_duration = 5000
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
 initial_position = start_of_file
-log_group_name = <%= node[:opsworks][:layers]['layershortname'][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-error
+log_group_name = <%= node[:opsworks][:instance][:layers][0][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-error
 
 [ssl.access]
 datetime_format = %Y-%m-%dT%H:%M:%S%z
@@ -23,7 +23,7 @@ file = /var/log/nginx/ssl.access.log
 buffer_duration = 5000
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
 initial_position = start_of_file
-log_group_name = <%= node[:opsworks][:layers]['layershortname'][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-ssl.access
+log_group_name = <%= node[:opsworks][:instance][:layers][0][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-ssl.access
 
 [ssl.error]
 datetime_format = %Y-%m-%dT%H:%M:%S%z
@@ -31,7 +31,7 @@ file = /var/log/nginx/ssl.error.log
 buffer_duration = 5000
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
 initial_position = start_of_file
-log_group_name = <%= node[:opsworks][:layers]['layershortname'][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-ssl.error
+log_group_name = <%= node[:opsworks][:instance][:layers][0][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-ssl.error
 
 [play]
 datetime_format = %Y-%m-%dT%H:%M:%S%z
@@ -39,4 +39,4 @@ file = /var/app/current/logs/application.log
 buffer_duration = 5000
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
 initial_position = start_of_file
-log_group_name = <%= node[:opsworks][:layers]['layershortname'][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-play
+log_group_name = <%= nodenode[:opsworks][:instance][:layers][0][:id] %>-.<%= node[:opsworks][:stack][:name].gsub(' ', '-') %>-play
