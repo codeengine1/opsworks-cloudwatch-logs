@@ -10,6 +10,7 @@ template "/tmp/cwlogs.cfg" do
   owner "root"
   group "root"
   mode 0644
+  notifies :restart, "service[awslogs]"
 end
 
 remote_file "/opt/aws/cloudwatch/awslogs-agent-setup.py" do
