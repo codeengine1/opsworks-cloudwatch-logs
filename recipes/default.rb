@@ -3,7 +3,7 @@ directory "/opt/aws/cloudwatch" do
 end
 
 template "/tmp/cwlogs.cfg" do
-  cookbook "logs"
+  cookbook "opsworks-cloudwatch-logs"
   source "cwlogs.cfg.erb"
   owner "root"
   group "root"
