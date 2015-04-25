@@ -1,4 +1,5 @@
 include_recipe "play"
+include_recipe "opsworks-cloudwatch-logs::service"
 
 directory "/opt/aws/cloudwatch" do
   recursive true
