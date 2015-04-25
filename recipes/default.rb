@@ -1,3 +1,5 @@
+include_recipe "play"
+
 directory "/opt/aws/cloudwatch" do
   recursive true
 end
